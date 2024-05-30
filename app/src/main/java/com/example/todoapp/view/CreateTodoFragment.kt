@@ -32,10 +32,6 @@ class CreateTodoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailTodoViewModel::class.java)
 
-        super.onViewCreated(view, savedInstanceState)
-        viewModel =
-            ViewModelProvider(this).get(DetailTodoViewModel::class.java)
-
         binding.btnAdd.setOnClickListener {
             var radio =
                 view.findViewById<RadioButton>(binding.radioGroupPriority.checkedRadioButtonId)

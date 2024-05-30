@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.todoapp160421055.view.CreateTodoFragment">
+    tools:context="com.example.todoapp160421097.view.CreateTodoFragment">
 
     <TextView
         android:id="@+id/txtJudulTodo"

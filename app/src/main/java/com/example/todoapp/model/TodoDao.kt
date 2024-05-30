@@ -16,8 +16,7 @@ interface TodoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg todo:Todo)
 
-    @Query("SELECT * FROM todo ORDER BY priority DESC")
-//    suspend fun selectAllTodo(): List<Todo>
+    @Query("SELECT * FROM todo WHERE is_done = 0 ORDER BY priority DESC")
     fun selectAllTodo(): List<Todo>
 
     @Query("SELECT * FROM todo WHERE uuid= :id")
@@ -28,7 +27,10 @@ interface TodoDao {
     @Query("UPDATE todo SET title=:title, notes=:notes, priority=:priority WHERE uuid = :id")
     fun update(title:String, notes:String, priority:Int, id:Int)
 
-    @Database(entities = arrayOf(Todo::class), version =  2)
+    @Query("UPDATE todo SET is_done =1 WHERE uuid = :id ")
+    fun markAsDOne(id: Int)
+
+    @Database(entities = arrayOf(Todo::class), version =  3)
     abstract class TodoDatabase: RoomDatabase() {
         abstract fun todoDao(): TodoDao
 
